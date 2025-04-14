@@ -1,0 +1,146 @@
+<!-- <!DOCTYPE html>
+<html>
+<head>
+ 
+  <base href="$FLUTTER_BASE_HREF">
+
+  <meta charset="UTF-8">
+  <meta content="IE=Edge" http-equiv="X-UA-Compatible">
+  <meta name="description" content="A new Flutter project.">
+
+
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <meta name="apple-mobile-web-app-title" content="dietplan">
+  <link rel="apple-touch-icon" href="icons/Icon-192.png">
+
+
+  <link rel="icon" type="image/png" href="favicon.png"/>
+
+  <title>dietplan</title>
+  <link rel="manifest" href="manifest.json">
+</head>
+<body>
+  <script src="flutter_bootstrap.js" async></script>
+</body>
+</html> -->
+
+<!DOCTYPE html>
+<html>
+<head>
+  <base href="$FLUTTER_BASE_HREF">
+  <meta charset="UTF-8">
+  <meta content="IE=Edge" http-equiv="X-UA-Compatible">
+  
+  <!-- Primary Meta Tags -->
+  <title>NutriPlan AI - Your Personalized Nutrition Assistant</title>
+  <meta name="title" content="NutriPlan AI - Your Personalized Nutrition Assistant">
+  <meta name="description" content="Personalized meal plans, recipe recommendations, and nutrition tracking all in one place.">
+
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://yourwebsite.com/">
+  <meta property="og:title" content="NutriPlan AI - Your Personalized Nutrition Assistant">
+  <meta property="og:description" content="Personalized meal plans, recipe recommendations, and nutrition tracking all in one place.">
+  <meta property="og:image" content="icons/Icon-512.png">
+
+  <!-- Twitter -->
+  <meta property="twitter:card" content="summary_large_image">
+  <meta property="twitter:url" content="https://yourwebsite.com/">
+  <meta property="twitter:title" content="NutriPlan AI - Your Personalized Nutrition Assistant">
+  <meta property="twitter:description" content="Personalized meal plans, recipe recommendations, and nutrition tracking all in one place.">
+  <meta property="twitter:image" content="icons/Icon-512.png">
+
+  <!-- iOS meta tags & icons -->
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <meta name="apple-mobile-web-app-title" content="NutriPlan AI">
+  <link rel="apple-touch-icon" href="icons/Icon-192.png">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="favicon.png"/>
+
+  <link rel="manifest" href="manifest.json">
+  
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Roboto:400,500,700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <!-- This script installs service_worker.js to provide PWA functionality -->
+  <script>
+    var serviceWorkerVersion = null;
+    var scriptLoaded = false;
+    function loadMainDartJs() {
+      if (scriptLoaded) {
+        return;
+      }
+      scriptLoaded = true;
+      var scriptTag = document.createElement('script');
+      scriptTag.src = 'main.dart.js';
+      scriptTag.type = 'application/javascript';
+      document.body.append(scriptTag);
+    }
+
+    if ('serviceWorker' in navigator) {
+      window.addEventListener('load', function () {
+        var serviceWorkerUrl = 'flutter_service_worker.js?v=' + serviceWorkerVersion;
+        navigator.serviceWorker.register(serviceWorkerUrl)
+          .then((reg) => {
+            function waitForActivation(serviceWorker) {
+              serviceWorker.addEventListener('statechange', () => {
+                if (serviceWorker.state == 'activated') {
+                  console.log('Installed new service worker.');
+                  loadMainDartJs();
+                }
+              });
+            }
+            if (!reg.active && (reg.installing || reg.waiting)) {
+              waitForActivation(reg.installing || reg.waiting);
+            } else {
+              loadMainDartJs();
+            }
+          });
+      });
+    } else {
+      loadMainDartJs();
+    }
+  </script>
+  
+  <!-- Loading indicator -->
+  <div id="loading">
+    <style>
+      body {
+        inset: 0;
+        overflow: hidden;
+        margin: 0;
+        padding: 0;
+        position: fixed;
+      }
+      #loading {
+        align-items: center;
+        display: flex;
+        height: 100%;
+        justify-content: center;
+        width: 100%;
+      }
+      #loading img {
+        animation: 1s ease-in-out 0s infinite alternate breathe;
+        opacity: .66;
+        transition: opacity .4s;
+      }
+      #loading.main_done img {
+        opacity: 1;
+      }
+      @keyframes breathe {
+        from {
+          transform: scale(1)
+        }
+        to {
+          transform: scale(0.95)
+        }
+      }
+    </style>
+    <img src="icons/Icon-192.png" alt="Loading indicator..." />
+  </div>
+</body>
+</html>
